@@ -162,8 +162,14 @@ public class KcmController {
 		int userId = userRepository.findByUsername(authentication.getName()).getId();
 		
 		String pdfLocation = songService.uploadFile(pdf, songTitle);
-		String midiLocation = songService.uploadFile(midi, songTitle);
+
+		String midiLocation = "";
+		System.out.println("Just checking we arrived here...");
 		
+		if(midi !=null) {
+			midiLocation = songService.uploadFile(midi, songTitle);
+		}
+
 		Composer composer = new Composer();
 		Choir choir = new Choir();
 		
