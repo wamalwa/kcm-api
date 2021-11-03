@@ -134,6 +134,8 @@ public class SongService {
 									: this.defaultNullLocation.resolve(fileLocation));
 					
 			Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
+
+			System.out.println("TARGET_LOCATION::::::::::::::::::::::" + targetLocation);
 			
 			return fileLocation;
 		} catch (IOException ex) {
