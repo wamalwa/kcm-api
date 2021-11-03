@@ -151,7 +151,7 @@ public class KcmController {
 	public ResponseEntity<?> uploadSong(
 			Authentication authentication,
 			@RequestParam("pdf") MultipartFile pdf,
-			@RequestParam("midi") MultipartFile midi,
+			@RequestParam(value = "midi", required = false) MultipartFile midi,
 			@RequestParam("song_title") String songTitle,
 			@RequestParam("lyrics") String displayText,
 			@RequestParam("composer_id") Integer composerId,
