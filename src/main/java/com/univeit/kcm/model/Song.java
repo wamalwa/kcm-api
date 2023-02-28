@@ -35,6 +35,8 @@ public class Song {
 	
 	@Column(name = "midi_location")
 	private String midiLocation;
+
+	private String thumbnail;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "composer_id")
@@ -115,7 +117,15 @@ public class Song {
 	public void setMidiLocation(String midiLocation) {
 		this.midiLocation = midiLocation;
 	}
-	
+
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+
 	public Composer getComposer() {
 		return composer;
 	}
