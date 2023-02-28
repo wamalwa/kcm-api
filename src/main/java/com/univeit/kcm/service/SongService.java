@@ -44,11 +44,11 @@ public class SongService {
 	
 	@Autowired
 	public SongService() {
-		this.pdfStorageLocation = Paths.get("C://var//kcm//files//pdf//")
+		this.pdfStorageLocation = Paths.get("/var/www/kcm-api/files/pdf/")
 				.toAbsolutePath().normalize();
-		this.midiStorageLocation = Paths.get("C://var//kcm//files//midi//")
+		this.midiStorageLocation = Paths.get("/var/www/kcm-api/files/midi/")
 				.toAbsolutePath().normalize();
-		this.defaultNullLocation = Paths.get("C://var//kcm//files//default//")
+		this.defaultNullLocation = Paths.get("/var/www/kcm-api/files/default/")
 				.toAbsolutePath().normalize();
 		
 		try {
@@ -134,6 +134,8 @@ public class SongService {
 									: this.defaultNullLocation.resolve(fileLocation));
 					
 			Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
+
+			System.out.println("TARGET_LOCATION::::::::::::::::::::::" + targetLocation);
 			
 			return fileLocation;
 		} catch (IOException ex) {
